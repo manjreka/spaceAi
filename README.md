@@ -52,3 +52,47 @@ npm install
 npm start
 
 
+cd ../frontend
+npm install
+npm run dev
+
+
+mutation {
+  createTask(title: "Finish project", description: "Complete the task manager app") {
+    id
+    title
+    description
+    status
+  }
+}
+
+
+{
+  "data": {
+    "createTask": {
+      "id": "664e6d9d60d8df0f953ebfc4",
+      "title": "Finish project",
+      "description": "Complete the task manager app",
+      "status": "PENDING"
+    }
+  }
+}
+
+query {
+  tasks {
+    id
+    title
+    description
+    status
+  }
+}
+
+
+mutation {
+  updateTaskStatus(id: "664e6d9d60d8df0f953ebfc4", status: "COMPLETED") {
+    id
+    title
+    status
+  }
+}
+
